@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:task_manager_flutter/presentation/providers/task_provider.dart';
 
 import '../settings/settings_screen.dart';
 
@@ -13,6 +15,7 @@ class HomeListTaskState extends State<HomeListTask>{
 
   @override
   Widget build(BuildContext context) {
+    final taskProvider = context.watch<TaskProvider>();
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -32,8 +35,65 @@ class HomeListTaskState extends State<HomeListTask>{
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Text("List Task")
+          child: SafeArea(
+            child: Column(
+              children: [
+                const _TaskDateFilter(),
+                _TaskList(taskProvider: taskProvider),
+              ],
+            ),
+          )
         ),
+      ),
+    );
+  }
+}
+
+class _TaskDateFilter extends StatelessWidget {
+  const _TaskDateFilter({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text('Today', style: Theme.of(context).textTheme.titleMedium),
+        TextButton(
+          onPressed: () {},
+          child: const Text('See all', style: TextStyle(color: Colors.blue)),
+        )
+      ],
+    );
+  }
+}
+
+class _TaskList extends StatelessWidget {
+  const _TaskList({
+    super.key,
+    required this.taskProvider,
+  });
+
+  final TaskProvider taskProvider;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: ListView.builder(
+        itemCount: taskProvider.tasks.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              title: Text(taskProvider.tasks[index].title),
+              subtitle: Text(taskProvider.tasks[index].description),
+              trailing: Checkbox(
+                value: taskProvider.tasks[index].isDone,
+                onChanged: (value) {},
+              ),
+            ),
+          );
+        },
       ),
     );
   }

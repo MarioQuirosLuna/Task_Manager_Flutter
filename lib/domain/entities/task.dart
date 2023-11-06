@@ -1,5 +1,5 @@
 class Task {
-  late final int id;
+  late final String id;
   final String title;
   final String description;
   final DateTime date;

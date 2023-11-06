@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:task_manager_flutter/presentation/providers/task_provider.dart';
 import 'package:task_manager_flutter/presentation/screens/homeListTask/home_list_task_screen.dart';
 
 import 'config/theme/app_theme.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => ThemeProvider(),
-      child: const MyApp(),
-    ),
+    MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (_) => ThemeProvider(),
+          ),
+          ChangeNotifierProvider(
+              create:(_) => TaskProvider(),
+          ),
+        ],
+        child: const MyApp(),
+    )
   );
 }
 
