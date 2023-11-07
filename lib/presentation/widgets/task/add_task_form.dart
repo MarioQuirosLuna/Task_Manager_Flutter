@@ -24,21 +24,28 @@ class AddTaskFrom extends StatelessWidget{
           fontWeight: FontWeight.bold,
         ),
       ),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          TextField(
-            controller: titleController,
-            decoration: const InputDecoration(labelText: 'Title'),
-          ),
-          TextField(
-            controller: descriptionController,
-            decoration: const InputDecoration(labelText: 'Description'),
-          ),
-          DateFieldInput(
-              dateController: dateController
-          ),
-        ],
+      content: SizedBox(
+        width: 400,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: titleController,
+              maxLength: 35,
+              decoration: const InputDecoration(labelText: 'Title'),
+            ),
+            TextField(
+              controller: descriptionController,
+              maxLength: 150,
+              maxLines: 5,
+              minLines: 1,
+              decoration: const InputDecoration(labelText: 'Description'),
+            ),
+            DateFieldInput(
+                dateController: dateController
+            ),
+          ],
+        ),
       ),
       actions: [
         TextButton(
@@ -54,6 +61,7 @@ class AddTaskFrom extends StatelessWidget{
                   descriptionController.text,
                   DateTime.parse(dateController.text),
               );
+              Navigator.of(context).pop();
             },
             child: const Text("Save")
         ),

@@ -103,7 +103,17 @@ class _TaskList extends StatelessWidget {
           return Card(
             child: ListTile(
               title: Text(taskProvider.tasks[index].title),
-              subtitle: Text(taskProvider.tasks[index].description),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(taskProvider.tasks[index].description),
+                  Text(
+                    "${taskProvider.tasks[index].date.year}-"
+                        "${taskProvider.tasks[index].date.month.toString().padLeft(2, '0')}-"
+                        "${taskProvider.tasks[index].date.day.toString().padLeft(2, '0')}",
+                  ),
+                ],
+              ),
               trailing: Checkbox(
                 value: taskProvider.tasks[index].isDone,
                 onChanged: (value) {},
