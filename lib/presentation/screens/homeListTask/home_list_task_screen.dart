@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task_manager_flutter/presentation/providers/task_provider.dart';
 
+import '../../widgets/task/add_task_form.dart';
 import '../settings/settings_screen.dart';
 
 class HomeListTask extends StatefulWidget {
@@ -40,6 +41,22 @@ class HomeListTaskState extends State<HomeListTask>{
               children: [
                 const _TaskDateFilter(),
                 _TaskList(taskProvider: taskProvider),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    FloatingActionButton(
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context){
+                              return AddTaskFrom(taskProvider: taskProvider);
+                            }
+                        );
+                      },
+                      child: const Icon(Icons.add),
+                    ),
+                  ],
+                )
               ],
             ),
           )

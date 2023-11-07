@@ -5,7 +5,8 @@ class Task {
   final DateTime date;
   final bool isDone;
 
-  Task(this.id, {
+  Task({
+    required this.id,
     required this.title,
     required this.description,
     required this.date,
