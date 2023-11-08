@@ -10,12 +10,16 @@ class DateFieldInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dateFocus = FocusNode();
+
     return TextFormField(
       controller: dateController,
+      focusNode: dateFocus,
       decoration: InputDecoration(
         labelText: 'Due Date',
         suffixIcon: IconButton(
           onPressed: () async {
+            dateFocus.requestFocus();
             final selectedDate = await showDatePicker(
               context: context,
               initialDate: DateTime.now(),
