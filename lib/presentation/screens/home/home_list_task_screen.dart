@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task_manager_flutter/presentation/providers/task_provider.dart';
 
+import '../../../config/theme/app_theme.dart';
 import '../../widgets/home/task/option_buttons.dart';
 import '../../widgets/home/task/task_date_filter.dart';
 import '../../widgets/home/task_list.dart';
@@ -20,11 +21,17 @@ class HomeListTaskState extends State<HomeListTask>{
   void initState() {
     super.initState();
     _loadTasks();
+    _loadSettings();
   }
 
   _loadTasks() async {
     final taskProvider = context.read<TaskProvider>();
     await taskProvider.loadTasks();
+  }
+
+  _loadSettings() async {
+    final settingsProvider = context.read<ThemeProvider>();
+    await settingsProvider.loadSettings();
   }
 
   @override

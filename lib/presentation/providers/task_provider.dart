@@ -9,7 +9,6 @@ class TaskProvider extends ChangeNotifier{
 
   Future<void> loadTasks() async {
     final savedTask = await TaskLocalStorage.loadTasks();
-    print("savedTask: $savedTask");
     if(savedTask != null){
       listTask = savedTask;
     }
