@@ -17,6 +17,17 @@ class HomeListTask extends StatefulWidget {
 class HomeListTaskState extends State<HomeListTask>{
 
   @override
+  void initState() {
+    super.initState();
+    _loadTasks();
+  }
+
+  _loadTasks() async {
+    final taskProvider = context.read<TaskProvider>();
+    await taskProvider.loadTasks();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final taskProvider = context.watch<TaskProvider>();
     return SafeArea(
