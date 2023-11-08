@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task_manager_flutter/presentation/providers/task_provider.dart';
-import 'package:task_manager_flutter/presentation/screens/homeListTask/home_list_task_screen.dart';
+import 'package:task_manager_flutter/presentation/screens/home/home_list_task_screen.dart';
 
 import 'config/theme/app_theme.dart';
 

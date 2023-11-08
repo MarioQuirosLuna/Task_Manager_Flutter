@@ -3,7 +3,7 @@ class Task {
   final String title;
   final String description;
   final DateTime date;
-  final bool isDone;
+  bool isDone;
 
   Task({
     required this.id,

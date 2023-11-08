@@ -39,12 +39,13 @@ class TaskProvider extends ChangeNotifier{
     listTask.add(task);
     notifyListeners();
   }
-  void removeTask(Task task){
-    listTask.remove(task);
+  void removeTask(String id){
+    listTask.removeWhere((element) => element.id == id);
     notifyListeners();
   }
-  void updateTask(Task task){
-    listTask[listTask.indexWhere((element) => element.id == task.id)] = task;
+  void toggleTaskCompletion(String id){
+    final task = listTask.firstWhere((element) => element.id == id);
+    task.isDone = !task.isDone;
     notifyListeners();
   }
   List<Task> get tasks => listTask;
