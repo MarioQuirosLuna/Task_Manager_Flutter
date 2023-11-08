@@ -35,6 +35,7 @@ class TaskProvider extends ChangeNotifier{
   void toggleTaskCompletion(String id){
     final task = listTask.firstWhere((element) => element.id == id);
     task.isDone = !task.isDone;
+    TaskLocalStorage.saveTasks(listTask);
     notifyListeners();
   }
   List<Task> get tasks => listTask;
