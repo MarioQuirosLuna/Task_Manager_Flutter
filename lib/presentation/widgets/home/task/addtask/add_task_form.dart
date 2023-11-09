@@ -56,12 +56,27 @@ class AddTaskFrom extends StatelessWidget{
         ),
         TextButton(
             onPressed: (){
-              taskProvider.addTask(
+              if(titleController.text.isNotEmpty && descriptionController.text.isNotEmpty && dateController.text.isNotEmpty){
+                taskProvider.addTask(
                   titleController.text,
                   descriptionController.text,
                   DateTime.parse(dateController.text),
-              );
-              Navigator.of(context).pop();
+                );
+                Navigator.of(context).pop();
+              }else{
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text(
+                      'Invalid fields.',
+                      style: TextStyle(fontWeight: FontWeight.bold)
+                    ),
+                    duration: Duration(seconds: 3),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                  ),
+                );
+              }
             },
             child: const Text("Save")
         ),
