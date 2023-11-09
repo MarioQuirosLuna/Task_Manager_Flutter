@@ -6,6 +6,12 @@ import 'package:task_manager_flutter/presentation/screens/home/home_list_task_sc
 import 'config/theme/app_theme.dart';
 
 void main() {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  FlutterError.onError = (details) {
+    FlutterError.dumpErrorToConsole(details);
+  };
+
   runApp(
     MultiProvider(
         providers: [

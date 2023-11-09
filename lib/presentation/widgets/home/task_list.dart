@@ -17,9 +17,9 @@ class TaskList extends StatelessWidget {
     return Expanded(
       child: AnimatedList(
         key: _listKey,
-        initialItemCount: taskProvider.tasks.length,
+        initialItemCount: taskProvider.filterTask.length,
         itemBuilder: (context, index, animation) {
-          final task = taskProvider.tasks[index];
+          final task = taskProvider.filterTask[index];
           return Dismissible(
             key: Key(task.id.toString()),
             onDismissed: (direction) {
@@ -53,7 +53,7 @@ class TaskList extends StatelessWidget {
                 ),
               ),
             ),
-            child: CardTask(taskProvider: taskProvider, index: index),
+            child: CardTask(taskProvider: taskProvider, task: task),
           );
         },
       ),

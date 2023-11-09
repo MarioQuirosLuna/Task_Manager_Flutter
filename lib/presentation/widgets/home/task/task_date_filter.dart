@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../providers/task_provider.dart';
 
 class TaskDateFilter extends StatelessWidget {
   const TaskDateFilter({
@@ -7,13 +10,22 @@ class TaskDateFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final taskProvider = context.watch<TaskProvider>();
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('Today', style: Theme.of(context).textTheme.titleMedium),
+        Text(
+            '${taskProvider.isShowAllTasks ? 'All' : 'Today'} tasks',
+            style: Theme.of(context).textTheme.titleLarge
+        ),
         TextButton(
-          onPressed: () {},
-          child: const Text('See all', style: TextStyle(color: Colors.blue)),
+          onPressed: () {
+            taskProvider.changeShowAllTasks();
+          },
+          child: Text(
+            'Show ${taskProvider.isShowAllTasks ? 'today' : 'all'} tasks',
+              style: const TextStyle(color: Colors.blue)
+          ),
         )
       ],
     );
