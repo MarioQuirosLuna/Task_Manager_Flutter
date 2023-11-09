@@ -11,13 +11,17 @@
 
 ## ✨ Demo.
 
-|Demo1|Demo2|Demo3|
+|List tasks|Filter Today Task|Delete task on swipe|
 |--|--|--|
-|![Demo1]()|![Demo2]()|![Demo3]()|
+|![Demo1](https://github.com/MarioQuirosLuna/Task_Manager_Flutter/blob/master/lib/assets/Screenshot_1699563117.png?raw=true)|![Demo5](https://github.com/MarioQuirosLuna/Task_Manager_Flutter/blob/master/lib/assets/Screenshot_1699563147.png?raw=true)|![Demo8](https://github.com/MarioQuirosLuna/Task_Manager_Flutter/blob/master/lib/assets/Screenshot_1699563206.png?raw=true)|
 
-|Ligth Mode|Color theme|Settings Ligth Mode|
+|Settings Screen|Settings Color Options|Sttings Dark Mode Options|
 |--|--|--|
-|![Demo4]()|![Demo5]()|![Demo6]()|
+|![Demo2](https://github.com/MarioQuirosLuna/Task_Manager_Flutter/blob/master/lib/assets/Screenshot_1699563127.png?raw=true)|![Demo3](https://github.com/MarioQuirosLuna/Task_Manager_Flutter/blob/master/lib/assets/Screenshot_1699563129.png?raw=true)|![Demo4](https://github.com/MarioQuirosLuna/Task_Manager_Flutter/blob/master/lib/assets/Screenshot_1699563136.png?raw=true)|
+
+|Add Task|Validate No empty data|
+|--|--|
+|![Demo6](https://github.com/MarioQuirosLuna/Task_Manager_Flutter/blob/master/lib/assets/Screenshot_1699563173.png?raw=true)|![Demo7](https://github.com/MarioQuirosLuna/Task_Manager_Flutter/blob/master/lib/assets/Screenshot_1699563196.png?raw=true)|
 
 ## 💻 About the project.
 
