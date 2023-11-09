@@ -22,7 +22,7 @@ class OptionButtons extends StatelessWidget {
             showDialog(
                 context: context,
                 builder: (BuildContext context){
-                  return AddTaskFrom(taskProvider: taskProvider);
+                  return AddTaskForm(taskProvider: taskProvider);
                 }
             );
           },

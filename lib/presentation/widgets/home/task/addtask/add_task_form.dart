@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../providers/task_provider.dart';
 import 'date_field_input.dart';
 
-class AddTaskFrom extends StatelessWidget{
-  const AddTaskFrom({
+class AddTaskForm extends StatelessWidget{
+  const AddTaskForm({
     super.key,
     required this.taskProvider
   });
@@ -67,7 +67,7 @@ class AddTaskFrom extends StatelessWidget{
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text(
-                      'Invalid fields.',
+                      'Please fill all fields.',
                       style: TextStyle(fontWeight: FontWeight.bold)
                     ),
                     duration: Duration(seconds: 3),
